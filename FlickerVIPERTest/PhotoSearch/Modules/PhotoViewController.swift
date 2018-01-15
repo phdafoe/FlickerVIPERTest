@@ -8,19 +8,24 @@
 
 import UIKit
 
+protocol PhotoSearchViewControllerOutput {
+    func fetchPhotos(_ searchTag : String, page : Int)
+}
+
 class PhotoViewController: UIViewController {
     
+    var presenter : PhotoSearchViewControllerOutput!
+    var arrayPhotos = [FlickrDataManager]()
+    var currentPage = 1
+    var totalPages = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
-        FlickrDataManager.sharedInstante.fetchPhotoForSearchText(searchText: CONSTANTES.PHOTO_SEARCH_KEY,
-                                                                 page: 1) { (errorData, page, photos) in
-                                                                    print(photos)
-        }
-        
+        performSearchWith(CONSTANTES.PHOTO_SEARCH_KEY)
+    }
+    
+    func performSearchWith(_ searchText : String){
+        presenter.fetchPhotos(searchText, page: currentPage)
     }
     
     

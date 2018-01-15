@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+protocol PhotoSearchPresenterInput : PhotoSearchViewControllerOutput {
+    
+}
+
+class PhotoSearchPresenter : PhotoSearchPresenterInput {
+    
+    var interactor : PhotoSearchInteractorInput!
+    
+    //El Presenter le dice al Interactor  que el ViewController necesita photos
+    func fetchPhotos(_ searchTag : String, page : Int){
+        self.interactor.fetchAllPhotosFromDataManager(searchTag, page: page)
+    }
+}

@@ -7,26 +7,18 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
-class FlickrDataManager {
+protocol FlickPhotoSearchProtocol : class {
+    func fetchPhotoForSearchText(searchText : String, page : Int, completion : @escaping errorIntArrayCompletion)
+}
+
+class FlickrDataManager : FlickPhotoSearchProtocol{
     
     static let sharedInstante = FlickrDataManager()
     
-//    struct Errors {
-//        static let invalidAccessError = 100
-//    }
-//
-//    struct FlickrAPIMetadataKeys {
-//        static let fealureStatusCode = "code"
-//    }
-//
-//    struct FlickrAPI {
-//        static let APIKey = "91e82bda4e57744a6c535881f8d4a28c"
-//        static let tagsSearchFormat = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@&page=%i&format=json&nojsoncallback=1"
-//    }
-    
     func fetchPhotoForSearchText(searchText : String, page : Int, completion : @escaping errorIntArrayCompletion){
-        
         let escapedSearhText = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let format = CONSTANTES.FLICKR_API.TAG_SEARCH_FORMAT
         let arguments : [CVarArg] = [CONSTANTES.FLICKR_API.API_KEY, escapedSearhText, page]
@@ -76,6 +68,8 @@ class FlickrDataManager {
         }
         searchTask.resume()
     }
+    
+    
     
     
     

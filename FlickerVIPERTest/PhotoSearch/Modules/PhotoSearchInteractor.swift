@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+protocol PhotoSearchInteractorInput : class {
+    func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int)
+}
+
+class PhotoSearchInteractor : PhotoSearchInteractorInput {
+    
+    //Colocamos el protocolo
+    var APIDataManager : FlickPhotoSearchProtocol!
+    
+    func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int){
+        APIDataManager.fetchPhotoForSearchText(searchText: searchTag,
+                                               page: page) { (error, totalPageCount, flickrPhotosArray) in
+                                                if let photosDes = flickrPhotosArray{
+                                                    //TODO
+                                                    print(photosDes)
+                                                }else if let errorDes = error{
+                                                    //TODO
+                                                    print(errorDes)
+                                                }
+        }
+    }
+}

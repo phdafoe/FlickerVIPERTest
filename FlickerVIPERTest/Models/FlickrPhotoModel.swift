@@ -16,8 +16,6 @@ struct FlickrPhotoModel {
     let server : String
     let title : String
     
-    //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
-    
     var photoURL : URL{
         return flickrImageURL()
     }
