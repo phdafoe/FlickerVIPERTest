@@ -10,6 +10,8 @@ import Foundation
 
 class PhotoSearchAssembly{
     
+    static let sharedInstance = PhotoSearchAssembly()
+    
     func configure(_ viewController : PhotoViewController){
         let APIDataManager = FlickrDataManager()
         let interactor = PhotoSearchInteractor()

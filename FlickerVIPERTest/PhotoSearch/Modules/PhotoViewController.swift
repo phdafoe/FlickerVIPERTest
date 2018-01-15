@@ -19,6 +19,12 @@ class PhotoViewController: UIViewController {
     var currentPage = 1
     var totalPages = 1
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        PhotoSearchAssembly.sharedInstance.configure(self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         performSearchWith(CONSTANTES.PHOTO_SEARCH_KEY)
