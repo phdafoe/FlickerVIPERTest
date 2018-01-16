@@ -11,6 +11,9 @@
 		4113415F200D6B7300454AD5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134162200D6B7300454AD5 /* Alamofire.framework */; };
 		41134160200D6B7300454AD5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134163200D6B7300454AD5 /* Kingfisher.framework */; };
 		41134161200D6B7300454AD5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134164200D6B7300454AD5 /* SwiftyJSON.framework */; };
+		4134B081200E8E880051DF97 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B080200E8E880051DF97 /* PhotoItemCell.swift */; };
+		4134B083200E8E990051DF97 /* PhotoLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B082200E8E990051DF97 /* PhotoLoadingCell.swift */; };
+		4134B086200E92770051DF97 /* ReuseIdentifierInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B085200E92770051DF97 /* ReuseIdentifierInterface.swift */; };
 		41B834FC200BCF75008A28C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B834FB200BCF75008A28C0 /* AppDelegate.swift */; };
 		41B83501200BCF75008A28C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41B834FF200BCF75008A28C0 /* Main.storyboard */; };
 		41B83503200BCF75008A28C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B83502200BCF75008A28C0 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		41134162200D6B7300454AD5 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41134163200D6B7300454AD5 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41134164200D6B7300454AD5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4134B080200E8E880051DF97 /* PhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCell.swift; sourceTree = "<group>"; };
+		4134B082200E8E990051DF97 /* PhotoLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLoadingCell.swift; sourceTree = "<group>"; };
+		4134B085200E92770051DF97 /* ReuseIdentifierInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierInterface.swift; sourceTree = "<group>"; };
 		41B834F8200BCF75008A28C0 /* FlickerVIPERTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickerVIPERTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B834FB200BCF75008A28C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41B83500200BCF75008A28C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4134B084200E8EAD0051DF97 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4134B080200E8E880051DF97 /* PhotoItemCell.swift */,
+				4134B082200E8E990051DF97 /* PhotoLoadingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4134B087200E939D0051DF97 /* ReuseIdentifier */ = {
+			isa = PBXGroup;
+			children = (
+				4134B085200E92770051DF97 /* ReuseIdentifierInterface.swift */,
+			);
+			path = ReuseIdentifier;
+			sourceTree = "<group>";
+		};
 		41B834EF200BCF75008A28C0 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				41B83514200BD2F1008A28C0 /* Modules */,
+				4134B084200E8EAD0051DF97 /* Cell */,
+				4134B087200E939D0051DF97 /* ReuseIdentifier */,
 			);
 			path = PhotoSearch;
 			sourceTree = "<group>";
@@ -137,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				41B8350D200BD1CD008A28C0 /* PhotoViewController.swift */,
-				41B83515200BD360008A28C0 /* PhotoSearchInteractor.swift */,
 				41B83519200BD3AD008A28C0 /* PhotoSearchPresenter.swift */,
+				41B83515200BD360008A28C0 /* PhotoSearchInteractor.swift */,
 				41B83523200BD504008A28C0 /* PhotoSearchRoot.swift */,
 				41B83527200BD52C008A28C0 /* PhotoSearchAssembly.swift */,
 			);
@@ -315,12 +340,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				41B83528200BD52C008A28C0 /* PhotoSearchAssembly.swift in Sources */,
+				4134B086200E92770051DF97 /* ReuseIdentifierInterface.swift in Sources */,
 				41B83524200BD504008A28C0 /* PhotoSearchRoot.swift in Sources */,
 				41B83510200BD215008A28C0 /* PhotoDetailViewController.swift in Sources */,
 				41B83518200BD37A008A28C0 /* PhotoDetailInteractor.swift in Sources */,
 				41B83516200BD360008A28C0 /* PhotoSearchInteractor.swift in Sources */,
 				41B8351C200BD3BF008A28C0 /* PhotoDetailPresenter.swift in Sources */,
+				4134B083200E8E990051DF97 /* PhotoLoadingCell.swift in Sources */,
 				41B8351A200BD3AD008A28C0 /* PhotoSearchPresenter.swift in Sources */,
+				4134B081200E8E880051DF97 /* PhotoItemCell.swift in Sources */,
 				41B83522200BD4BC008A28C0 /* FlickDataManager.swift in Sources */,
 				41B834FC200BCF75008A28C0 /* AppDelegate.swift in Sources */,
 				41B8352A200BD54C008A28C0 /* PhotoDetailAssembly.swift in Sources */,

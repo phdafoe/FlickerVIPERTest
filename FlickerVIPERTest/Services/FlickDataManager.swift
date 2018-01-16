@@ -10,11 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol FlickPhotoSearchInterface : class {
+protocol FlickPhotoSearchProtocol : class {
     func fetchPhotoForSearchText(searchText : String, page : Int, completion : @escaping errorIntArrayCompletion)
 }
 
-class FlickrDataManager : FlickPhotoSearchInterface{
+class FlickrDataManager : FlickPhotoSearchProtocol{
     
     static let sharedInstante = FlickrDataManager()
     
@@ -34,7 +34,7 @@ class FlickrDataManager : FlickPhotoSearchInterface{
                 let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? customDictionary
                 guard let results = resultsDictionary else {return}
                 if let statusCode = results[CONSTANTES.FLICKR_API_METADATA_KEY.FEALURE_STATUS_CODE] as? Int{
-                    if statusCode == CONSTANTES.ERROS.INVALID_ACCESS_ERROR{
+                    if statusCode == CONSTANTES.ERRORS.INVALID_ACCESS_ERROR{
                         let invalideAccessError = NSError(domain: "FlickrAPIDomain",
                                                           code: statusCode,
                                                           userInfo: nil)

@@ -25,6 +25,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-pK-ixo">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="W5s-RY-VsG">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -32,7 +33,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoItemCell" id="3W5-5d-SHW">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoItemCell" id="3W5-5d-SHW" customClass="PhotoItemCell" customModule="FlickerVIPERTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -50,8 +51,11 @@
                                             <constraint firstAttribute="bottom" secondItem="HW7-tV-695" secondAttribute="bottom" id="ZZQ-Mx-pXb"/>
                                             <constraint firstAttribute="trailing" secondItem="HW7-tV-695" secondAttribute="trailing" id="cEP-5X-nCr"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="HW7-tV-695" id="KQx-Uc-FH4"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoLoadingCell" id="SZQ-bR-yyl">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoLoadingCell" id="SZQ-bR-yyl" customClass="PhotoLoadingCell" customModule="FlickerVIPERTest" customModuleProvider="target">
                                         <rect key="frame" x="110" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -67,8 +71,15 @@
                                             <constraint firstItem="Fbl-9Z-Fuo" firstAttribute="centerY" secondItem="SZQ-bR-yyl" secondAttribute="centerY" id="9Iz-qR-ogG"/>
                                             <constraint firstItem="Fbl-9Z-Fuo" firstAttribute="centerX" secondItem="SZQ-bR-yyl" secondAttribute="centerX" id="mX8-j3-oxz"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="myActivityIndicator" destination="Fbl-9Z-Fuo" id="Qn5-ux-zdj"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3eK-Kh-rrW"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4xf-GC-hX7"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,6 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="G6L-O9-OGo"/>
                     <connections>
+                        <outlet property="photoCollectionView" destination="dtk-pK-ixo" id="SEl-ll-5eN"/>
                         <segue destination="3wi-VW-v0x" kind="show" identifier="ShowDetailVC" id="Jh0-31-qjg"/>
                     </connections>
                 </viewController>

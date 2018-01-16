@@ -16,13 +16,17 @@ let CONSTANTES = Constantes()
 
 struct Constantes {
     let PHOTO_SEARCH_KEY = "party"
-    let ERROS = Errors()
+    let ERRORS = Errors()
     let FLICKR_API_METADATA_KEY = FlickrAPIMetadataKeys()
     let FLICKR_API = FlickrAPI()
 }
 
 struct Errors {
     let INVALID_ACCESS_ERROR = 100
+    let ERROR_TITLE = "Error de servicio"
+    let ERROR_MESSAGE = "Hemos tenido algun problema en la carga de datos"
+    let OK = "OK"
+    let ERROR_DEFAULT = "Tenemos problemas"
 }
 
 struct FlickrAPIMetadataKeys {
