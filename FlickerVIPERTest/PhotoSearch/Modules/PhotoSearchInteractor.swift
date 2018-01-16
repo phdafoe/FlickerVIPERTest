@@ -12,20 +12,24 @@ protocol PhotoSearchInteractorInput : class {
     func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int)
 }
 
+protocol PhotoSearchInteractorOutput : class {
+    func providedPhotos(_ photos : [FlickrPhotoModel], totalPage : Int)
+    func serviceError(_ error : Error)
+}
+
 class PhotoSearchInteractor : PhotoSearchInteractorInput {
     
     //Colocamos el protocolo / Interface
     var APIDataManager : FlickPhotoSearchProtocol!
+    weak var presenter : PhotoSearchInteractorOutput!
     
     func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int){
         APIDataManager.fetchPhotoForSearchText(searchText: searchTag,
                                                page: page) { (error, totalPageCount, flickrPhotosArray) in
                                                 if let photosDes = flickrPhotosArray{
-                                                    //TODO
-                                                    print(photosDes)
+                                                    self.presenter.providedPhotos(photosDes, totalPage: totalPageCount)
                                                 }else if let errorDes = error{
-                                                    //TODO
-                                                    print(errorDes)
+                                                    self.presenter.serviceError(errorDes)
                                                 }
         }
     }

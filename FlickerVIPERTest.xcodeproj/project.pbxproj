@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4113415E200D631300454AD5 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113415D200D631300454AD5 /* Const.swift */; };
-		4113415F200D6B7300454AD5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134162200D6B7300454AD5 /* Alamofire.framework */; };
-		41134160200D6B7300454AD5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134163200D6B7300454AD5 /* Kingfisher.framework */; };
-		41134161200D6B7300454AD5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41134164200D6B7300454AD5 /* SwiftyJSON.framework */; };
 		4134B081200E8E880051DF97 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B080200E8E880051DF97 /* PhotoItemCell.swift */; };
 		4134B083200E8E990051DF97 /* PhotoLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B082200E8E990051DF97 /* PhotoLoadingCell.swift */; };
 		4134B086200E92770051DF97 /* ReuseIdentifierInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B085200E92770051DF97 /* ReuseIdentifierInterface.swift */; };
@@ -29,6 +26,7 @@
 		41B83524200BD504008A28C0 /* PhotoSearchRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B83523200BD504008A28C0 /* PhotoSearchRoot.swift */; };
 		41B83528200BD52C008A28C0 /* PhotoSearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B83527200BD52C008A28C0 /* PhotoSearchAssembly.swift */; };
 		41B8352A200BD54C008A28C0 /* PhotoDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B83529200BD54C008A28C0 /* PhotoDetailAssembly.swift */; };
+		41E7485F200EA4B900AAF8CA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E74860200EA4B900AAF8CA /* SDWebImage.framework */; };
 		EF249FC7DD6C28E47FF4210F /* Pods_FlickerVIPERTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB252529C714A2282F7F80B /* Pods_FlickerVIPERTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +55,7 @@
 		41B83523200BD504008A28C0 /* PhotoSearchRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchRoot.swift; sourceTree = "<group>"; };
 		41B83527200BD52C008A28C0 /* PhotoSearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchAssembly.swift; sourceTree = "<group>"; };
 		41B83529200BD54C008A28C0 /* PhotoDetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailAssembly.swift; sourceTree = "<group>"; };
+		41E74860200EA4B900AAF8CA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB252529C714A2282F7F80B /* Pods_FlickerVIPERTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickerVIPERTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2669556F5DC159FC5E004D /* Pods-FlickerVIPERTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerVIPERTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerVIPERTest/Pods-FlickerVIPERTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DE95EB71D302B3671B0F90BF /* Pods-FlickerVIPERTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerVIPERTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerVIPERTest/Pods-FlickerVIPERTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,9 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4113415F200D6B7300454AD5 /* Alamofire.framework in Frameworks */,
-				41134160200D6B7300454AD5 /* Kingfisher.framework in Frameworks */,
-				41134161200D6B7300454AD5 /* SwiftyJSON.framework in Frameworks */,
+				41E7485F200EA4B900AAF8CA /* SDWebImage.framework in Frameworks */,
 				EF249FC7DD6C28E47FF4210F /* Pods_FlickerVIPERTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +186,7 @@
 		88E262F366C7A40AF44290B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41E74860200EA4B900AAF8CA /* SDWebImage.framework */,
 				41134162200D6B7300454AD5 /* Alamofire.framework */,
 				41134163200D6B7300454AD5 /* Kingfisher.framework */,
 				41134164200D6B7300454AD5 /* SwiftyJSON.framework */,
@@ -299,15 +297,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlickerVIPERTest/Pods-FlickerVIPERTest-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

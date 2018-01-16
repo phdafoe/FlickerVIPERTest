@@ -6,8 +6,6 @@ target 'FlickerVIPERTest' do
   use_frameworks!
 
   # Pods for FlickerVIPERTest
-  pod 'Alamofire'
-  pod 'Kingfisher'
-  pod 'SwiftyJSON' 
+  pod 'SDWebImage'
 
 end

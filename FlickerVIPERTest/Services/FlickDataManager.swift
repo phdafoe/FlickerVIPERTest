@@ -7,14 +7,17 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
+import SDWebImage
 
 protocol FlickPhotoSearchProtocol : class {
     func fetchPhotoForSearchText(searchText : String, page : Int, completion : @escaping errorIntArrayCompletion)
 }
 
-class FlickrDataManager : FlickPhotoSearchProtocol{
+protocol FlickrPhotoLoadImageProtocol : class {
+    func loadImageFromUlr(_ url : URL, completion : @escaping imageErrorCompletion)
+}
+
+class FlickrDataManager : FlickPhotoSearchProtocol, FlickrPhotoLoadImageProtocol{
     
     static let sharedInstante = FlickrDataManager()
     
@@ -67,6 +70,15 @@ class FlickrDataManager : FlickPhotoSearchProtocol{
             }
         }
         searchTask.resume()
+    }
+    
+    //Servicio memoria cache
+    func loadImageFromUlr(_ url : URL, completion : @escaping imageErrorCompletion){
+        SDWebImageManager.shared().loadImage(with: url,
+                                             options: .cacheMemoryOnly,
+                                             progress: nil) { (image, data, error, cache, finished, withUrl) in
+                                                completion(image, error)
+        }
     }
     
     

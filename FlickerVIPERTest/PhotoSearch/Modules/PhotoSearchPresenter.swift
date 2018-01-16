@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol PhotoSearchPresenterInput : PhotoViewControllerOutput {
+protocol PhotoSearchPresenterInput : PhotoViewControllerOutput, PhotoSearchInteractorOutput {
     
 }
 
 class PhotoSearchPresenter : PhotoSearchPresenterInput {
     
-    weak var view : PhotoViewControllerInput!
+    var view : PhotoViewControllerInput!
     var interactor : PhotoSearchInteractorInput!
     
     //El Presenter le dice al Interactor  que el ViewController necesita photos
@@ -32,3 +32,4 @@ class PhotoSearchPresenter : PhotoSearchPresenterInput {
         self.serviceError(CONSTANTES.ERRORS.ERROR_DEFAULT as! Error)
     }
 }
+

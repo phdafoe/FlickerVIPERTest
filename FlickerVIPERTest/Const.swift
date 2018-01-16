@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 typealias errorIntArrayCompletion = (Error?, Int, [FlickrPhotoModel]?) -> ()
 typealias customDictionary = [String : Any]
+typealias imageErrorCompletion = (UIImage?, Error?) -> ()
 
 let CONSTANTES = Constantes()
 
