@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol PhotoSearchInteractorInput : class {
+protocol PhotoSearchInteractorInterface : class {
     func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int)
 }
 
-class PhotoSearchInteractor : PhotoSearchInteractorInput {
+class PhotoSearchInteractor : PhotoSearchInteractorInterface {
     
-    //Colocamos el protocolo
-    var APIDataManager : FlickPhotoSearchProtocol!
+    //Colocamos el protocolo / Interface
+    var APIDataManager : FlickPhotoSearchInterface!
     
     func fetchAllPhotosFromDataManager(_ searchTag : String, page : Int){
         APIDataManager.fetchPhotoForSearchText(searchText: searchTag,

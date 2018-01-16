@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol PhotoSearchViewControllerOutput {
+protocol PhotoSearchViewControllerInterface {
     func fetchPhotos(_ searchTag : String, page : Int)
 }
 
 class PhotoViewController: UIViewController {
     
-    var presenter : PhotoSearchViewControllerOutput!
+    var presenter : PhotoSearchViewControllerInterface!
     var arrayPhotos = [FlickrDataManager]()
     var currentPage = 1
     var totalPages = 1

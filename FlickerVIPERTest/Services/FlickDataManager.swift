@@ -10,11 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol FlickPhotoSearchProtocol : class {
+protocol FlickPhotoSearchInterface : class {
     func fetchPhotoForSearchText(searchText : String, page : Int, completion : @escaping errorIntArrayCompletion)
 }
 
-class FlickrDataManager : FlickPhotoSearchProtocol{
+class FlickrDataManager : FlickPhotoSearchInterface{
     
     static let sharedInstante = FlickrDataManager()
     

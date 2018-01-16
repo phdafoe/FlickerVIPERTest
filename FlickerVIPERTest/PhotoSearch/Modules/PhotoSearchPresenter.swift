@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol PhotoSearchPresenterInput : PhotoSearchViewControllerOutput {
+protocol PhotoSearchPresenterInterface : PhotoSearchViewControllerInterface {
     
 }
 
-class PhotoSearchPresenter : PhotoSearchPresenterInput {
+class PhotoSearchPresenter : PhotoSearchPresenterInterface {
     
-    var interactor : PhotoSearchInteractorInput!
+    var interactor : PhotoSearchInteractorInterface!
     
     //El Presenter le dice al Interactor  que el ViewController necesita photos
     func fetchPhotos(_ searchTag : String, page : Int){
