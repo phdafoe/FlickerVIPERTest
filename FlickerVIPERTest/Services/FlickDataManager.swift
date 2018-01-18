@@ -77,20 +77,10 @@ class FlickrDataManager : FlickPhotoSearchProtocol, FlickrPhotoLoadImageProtocol
         SDWebImageManager.shared().loadImage(with: url,
                                              options: .cacheMemoryOnly,
                                              progress: nil) { (image, data, error, cache, finished, withUrl) in
-                                                completion(image, error)
+                                                if (image != nil) && finished{
+                                                    completion(image, error)
+                                                }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     
 }

@@ -10,11 +10,16 @@ import UIKit
 
 protocol PhotoViewControllerOutput {
     func fetchPhotos(_ searchTag : String, page : Int)
+    func goToPhotoDetailScreen()
+    func passDataToNextViewController(_ customSegue : UIStoryboardSegue)
 }
 
 protocol PhotoViewControllerInput {
     func displayFetchedPhotos(_ photos : [FlickrPhotoModel], totalPages : Int)
     func displayErrorView(_ errorMessage : String)
+    func showWaitingView()
+    func hideWaitingView()
+    func getTotalPhotosCount() -> Int
 }
 
 class PhotoViewController: UIViewController, PhotoViewControllerInput  {
@@ -22,7 +27,7 @@ class PhotoViewController: UIViewController, PhotoViewControllerInput  {
     
     //MARK: - Variables locales
     var presenter : PhotoViewControllerOutput!
-    var arrayPhotos = [FlickrDataManager]()
+    var arrayPhotos : [FlickrPhotoModel] = []
     var currentPage = 1
     var totalPages = 1
     
@@ -74,6 +79,40 @@ class PhotoViewController: UIViewController, PhotoViewControllerInput  {
                 completion: nil)
     }
     
+    //Muestra Vista de Actividad
+    func showWaitingView(){
+        let alert = UIAlertController(title: nil,
+                                             message: CONSTANTES.ERRORS.MESSAGE_WAITING,
+                                             preferredStyle: .alert)
+        alert.view.tintColor = UIColor.black
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10,
+                                                                     y: 5,
+                                                                     width: 50,
+                                                                     height: 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = .gray
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+        self.navigationController?.present(alert, animated: true, completion: nil)
+    }
+    
+    //Oculta la vista de Actividad
+    func hideWaitingView(){
+        self.dismiss(animated: true,
+                     completion: nil)
+    }
+    
+    //Obtiene el numero total de fotos
+    func getTotalPhotosCount() -> Int{
+        return arrayPhotos.count
+    }
+    
+    //MARK: - Navigation con Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.presenter.passDataToNextViewController(segue)
+    }
+    
     
 }
 //MARK: - UICollectionViewDataSource
@@ -102,6 +141,16 @@ extension PhotoViewController : UICollectionViewDataSource{
     
     func photoItemCell(_ collectionView: UICollectionView,  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.defaultReuseIdentifier, for: indexPath) as! PhotoItemCell
+        
+        let fickerPhoto = arrayPhotos[indexPath.row]
+        cell.photoImageView.alpha = 0
+        cell.photoImageView.sd_setImage(with: fickerPhoto.photoURL) { (imadeData, errorData, cacheData, url) in
+            cell.photoImageView.image = imadeData
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.photoImageView.alpha = 1
+            })
+        }
+        
         return cell
     }
     
@@ -115,7 +164,7 @@ extension PhotoViewController : UICollectionViewDataSource{
 //MARK: - UICollectionViewDelegate
 extension PhotoViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO:
+        self.presenter.goToPhotoDetailScreen()
     }
 }
 

@@ -29,6 +29,8 @@ struct Errors {
     let ERROR_MESSAGE = "Hemos tenido algun problema en la carga de datos"
     let OK = "OK"
     let ERROR_DEFAULT = "Tenemos problemas"
+    let TITLE_WAITING = "Estimado usuario"
+    let MESSAGE_WAITING = "Espere por favor..."
 }
 
 struct FlickrAPIMetadataKeys {
